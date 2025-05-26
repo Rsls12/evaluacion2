@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './app.css';
-import { activarSlider } from './js/slider'; // Asegúrate que está en src/home/js/slider.js
+import { activarSlider } from './js/slider'; 
 
 function App() {
   useEffect(() => {

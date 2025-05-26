@@ -10,7 +10,7 @@ import App from './home/app.jsx';
 import Cart from './routes/Cart.jsx';
 import Checkout from './routes/Checkout.jsx';
 import Fin from './routes/Fin.jsx';
-import Resultados from './resultados.jsx';// ✅ Asegúrate que la ruta y nombre estén correctos
+import Resultados from './resultados.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     element: <Fin />
   },
   {
-    path: "resultados",  // ✅ Esta es la nueva ruta para los resultados
+    path: "resultados",  
     element: <Resultados />
   }
 ]);

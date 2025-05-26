@@ -1,4 +1,4 @@
-/* src/home/Landing.css */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -52,7 +52,7 @@ html, body {
   cursor: pointer;
 }
 
-/* 🔸 Menú principal */
+/* Menú principal */
 .menu ul {
   display: flex;
   justify-content: space-around;
@@ -70,14 +70,14 @@ html, body {
   font-weight: bold;
 }
 
-/* 🔸 Banner */
+/* Banner */
 .banner img {
   width: 100%;
   border-radius: 10px;
   margin: 24px 0;
 }
 
-/* 🔹 Categorías */
+/* Categorías */
 .categoria-items {
   display: flex;
   justify-content: center;
@@ -107,7 +107,7 @@ html, body {
   object-fit: contain;
 }
 
-/* 🔸 Productos */
+/* Productos */
 .productos-grid {
   display: flex;
   overflow-x: auto;/* para slider horizontal */
@@ -180,7 +180,7 @@ html, body {
   color: white;
 }
 
-/* 🔁 Slider lateral */
+/* Slider lateral */
 .caja-slider {
   display: flex;
   align-items: center;
@@ -201,7 +201,7 @@ html, body {
   align-items: center;
 }
 
-/* 🔻 Footer */
+/* Footer */
 .footer {
   background-color: #333;
   color: white;

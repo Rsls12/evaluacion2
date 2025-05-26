@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import "./resultados.css";  // correcto si el CSS está en la misma carpeta que resultados.jsx
+import "./resultados.css";  
 
-import { filtrarProductos } from "./home/js/busqueda"; // ✅ correcta si está en src/home/js/
+import { filtrarProductos } from "./home/js/busqueda"; 
 
 const productosData = [
   {
@@ -10,7 +10,7 @@ const productosData = [
     categoria: "Frutas",
     precio: 2.99,
     marca: "Agro",
-    imagen: "/img/zanahoria.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/zanahoria.png" 
   },
   
   {
@@ -19,7 +19,7 @@ const productosData = [
     categoria: "Frutas",
     precio: 5.99,
     marca: "Agro",
-    imagen: "/img/papaya.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/papaya.png" 
   },
 
   {
@@ -28,7 +28,7 @@ const productosData = [
     categoria: "Frutas",
     precio: 5.69,
     marca: "Agro",
-    imagen: "/img/frutas.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/frutas.png" 
   },
 
   {
@@ -37,7 +37,7 @@ const productosData = [
     categoria: "Desayunos",
     precio: 5.69,
     marca: "Altomayo",
-    imagen: "/img/cafe.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/cafe.png" 
   },
 
   {
@@ -46,7 +46,7 @@ const productosData = [
     categoria: "Carnes",
     precio: 15.99,
     marca: "San Fernando",
-    imagen: "/img/pollo.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/pollo.png" 
   },
 
   {
@@ -55,7 +55,7 @@ const productosData = [
     categoria: "Lacteos",
     precio: 8.99,
     marca: "Gloria",
-    imagen: "/img/gloria.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/gloria.png" 
   },
 
    {
@@ -64,7 +64,7 @@ const productosData = [
     categoria: "Queso",
     precio: 20.99,
     marca: "Laive",
-    imagen: "/img/queso.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/queso.png"
   },
 
   {
@@ -73,7 +73,7 @@ const productosData = [
     categoria: "Abarrotes",
     precio: 5.99,
     marca: "Primor",
-    imagen: "/img/aceite.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/aceite.png" 
   },
 
   {
@@ -82,7 +82,7 @@ const productosData = [
     categoria: "Panaderia",
     precio: 5.99,
     marca: "Bimbo",
-    imagen: "/img/bimbo.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/bimbo.png" 
   },
 
   {
@@ -91,7 +91,7 @@ const productosData = [
     categoria: "Congelados",
     precio: 13.99,
     marca: "Donofrio",
-    imagen: "/img/helado.png" // 🔸 asegúrate de tener este archivo en public/img/
+    imagen: "/img/helado.png" 
   },
 
 ];
