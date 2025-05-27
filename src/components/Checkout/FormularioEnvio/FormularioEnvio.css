@@ -1,5 +1,5 @@
 .checkout-container {
-  width: 1000px; /* Aumentamos el ancho máximo para mejor distribución horizontal */
+  width: 1000px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 8px;
@@ -32,11 +32,11 @@ form{
 .form-group label {
   font-size: 12px;
   color: #555;
-  margin-bottom: 0; /* elimina espacio extra */
+  margin-bottom: 0;
 }
 
 
-.form-group input, select {
+.form-group input {
   width: 250px;
   padding: 6px 8px;
   margin: 0;
@@ -52,26 +52,17 @@ form{
   margin-bottom: 16px;
 }
 
-
-/* Estilos específicos para inputs más pequeños */
 .form-group-sm {
-  flex-basis: auto; /* Permite que los inputs pequeños se ajusten al contenido */
-  min-width: 80px; /* Ancho mínimo más pequeño */
-  max-width: 150px; /* Ancho máximo para evitar que se expandan demasiado */
+  flex-basis: auto;
+  min-width: 80px;
+  max-width: 150px;
 }
 
 .form-group-sm label {
-  flex-basis: auto; /* Las etiquetas de los campos pequeños se ajustan al contenido */
-  margin-right: 10px; /* Añade un poco de espacio a la derecha de la etiqueta */
+  flex-basis: auto; 
+  margin-right: 10px;
 }
 
-.form-group select {
-  appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 1em;
-}
 
 .qr-container {
   margin-top: 15px;
