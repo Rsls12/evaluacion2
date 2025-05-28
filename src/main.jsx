@@ -10,6 +10,7 @@ import Checkout from './routes/Checkout.jsx';
 import Fin from './routes/Fin.jsx';
 import Catalogo from './routes/Catalogo.jsx';
 import Resultados from './resultados.jsx';
+import Dashboardpage from './routes/Dashboard.jsx';
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
   { path: '/end', element: <Fin /> },
   { path: '/catalogo', element: <Catalogo /> },
   { path: '/resultados', element: <Resultados /> },
-  
+  { path: '/dashboard', element: <Dashboardpage /> },
 ])
 
 createRoot(document.getElementById('root')).render(
