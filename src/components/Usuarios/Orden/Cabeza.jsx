@@ -3,7 +3,6 @@ import './Cabeza.css'
 const cabeza = () => {
   return (
     <>
-    <h1>Detalles de Orden</h1>
     <div className='ordenes'>
     <article>
       <h1>Orden</h1>

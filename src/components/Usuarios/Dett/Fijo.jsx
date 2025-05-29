@@ -18,8 +18,8 @@ const Fijo = () => {
 
   return (
     <>
-    <h1>Detalles del Usuario</h1>
-    <div>
+    <div className='daya'>
+      <h1>Detalles del Usuario</h1>
       <UserDetail user={usuarioSeleccionado} />
     </div>
     </>

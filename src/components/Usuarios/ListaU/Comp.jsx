@@ -137,6 +137,8 @@ const valores = [
   };
 
   return (
+    <>
+    <h1>Listado de usuarios</h1>
     <main className="tabla-container">
         <div className='robert'>
       <input
@@ -170,6 +172,7 @@ const valores = [
         </tbody>
       </table>
     </main>
+    </>
   );
 };
 

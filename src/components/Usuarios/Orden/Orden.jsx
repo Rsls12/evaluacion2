@@ -77,7 +77,8 @@ const Orden = () => {
     const [filteredTotal, setFilteredTotal] = useState(valores);
   return (
     <>
-    
+    <h1>Detalles de Orden</h1>
+    <div className='ddd'>
     <Cabeza/>
     <table>
       <thead>
@@ -106,6 +107,7 @@ const Orden = () => {
         }
       </tbody>
     </table>
+    </div>
     </>
   )
 }

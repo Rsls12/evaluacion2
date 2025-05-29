@@ -8,6 +8,10 @@ const Listau = ({ avatar, name, date, status, statusColor }) => {
       </td>
       <td>{date}</td>
       <td className={statusColor}>{status}</td>
+      <td>
+        <button>Desactivar</button>
+        <button>Ver Detalle</button>
+      </td>
     </tr>
   );
 };

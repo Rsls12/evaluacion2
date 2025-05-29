@@ -1,17 +1,15 @@
 import React from 'react';
-import accion from "../../../../public/img/acciones.png"
 const UserDetail = ({ user }) => {
   return (
     <div className="box">
-      <h2>Últimas Órdenes</h2>
       <div className="user-detail">
-        <img src={user.img} alt="" className="avatar-large" />
         <div>
           <p><strong>{user.nombre}</strong></p>
           <p>Correo: {user.email}</p>
           <p>Fecha de registro: {user.fechaRegistro}</p>
           <p>Estado: {user.estado}</p>
         </div>
+        <img src={user.img} alt="" className="avatar-large" />
       </div>
       <table>
         <thead>
@@ -23,7 +21,9 @@ const UserDetail = ({ user }) => {
               <td className="red">#{orden.id}</td>
               <td>{orden.fecha}</td>
               <td>S/{orden.total}</td>
-              <td><img src={accion} alt="accion" /></td>
+              <td>
+                <button>Ver Detalle</button>
+              </td>
             </tr>
           ))}
         </tbody>
