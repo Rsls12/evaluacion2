@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../../home/app.css';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderPre = () => {
   const [busqueda, setBusqueda] = useState('');
@@ -9,6 +10,11 @@ const HeaderPre = () => {
       // Puedes hacer una búsqueda aquí o redirigir
       console.log('Buscar:', busqueda);
     }
+  };
+
+  const navigate = useNavigate();
+  const irCarrito = () => {
+  navigate('/cart');  
   };
 
   return (
@@ -30,7 +36,7 @@ const HeaderPre = () => {
 
 
         <div className="acciones">
-          <button className="btn-secundario">🛒 Carrito</button>
+          <button onClick={irCarrito} className="btn-secundario">🛒 Carrito</button>
           <button className="btn-secundario">👤 Usuario</button>
         </div>
       </header>

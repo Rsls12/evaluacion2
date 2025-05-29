@@ -11,9 +11,9 @@ const Fin = () => {
   const navigate = useNavigate();
 
   const volverInicio = () => {
-    vaciarCarrito();        // 🔁 limpia productos
-    limpiarDireccion();     // 🧼 limpia datos de envío
-    navigate('/catalogo');  
+    vaciarCarrito();
+    limpiarDireccion();
+    navigate('/');  
   };
 
   return (

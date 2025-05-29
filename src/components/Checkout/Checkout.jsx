@@ -7,7 +7,7 @@ import PagoTarjeta from './PagoTarjeta/PagoTarjeta';
 import ResumenCompra from "../Cart/ResumenCompra/ResumenCompra";
 
 const Checkout = () => {
-  const [etapa, setEtapa] = useState('envio'); // 'envio', 'seleccion', 'qr', 'tarjeta'
+  const [etapa, setEtapa] = useState('envio');
 
   const avanzar = (siguiente) => setEtapa(siguiente);
 
@@ -27,7 +27,7 @@ const Checkout = () => {
 
   return (
     <div className="checkout-wrapper">
-  <div className="checkout-container">
+    <div className="checkout-container">
     <div className="checkout-formulario">
       <h2>Checkout</h2>
       {renderContenido()}

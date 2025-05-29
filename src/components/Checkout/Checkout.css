@@ -68,7 +68,7 @@ button {
 }
 .resumen-compra {
   flex: 1;
-  align-self: flex-start; /* 🔥 Esto evita que se estire verticalmente */
+  align-self: flex-start;
   background-color: #fff;
   padding: 20px;
   border: 1px solid #ddd;

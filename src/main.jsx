@@ -1,15 +1,15 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import CartProvider from "./context/CartContext.jsx" // 👈 importa tu contexto
+import CartProvider from "./context/CartContext.jsx"
 
 import './index.css';
-import App from './home/app.jsx'; 
-import Cart from './routes/Cart.jsx';
-import Checkout from './routes/Checkout.jsx';
-import Fin from './routes/Fin.jsx';
-import Catalogo from './routes/Catalogo.jsx';
-import Resultados from './resultados.jsx';
+import App from './home/app.jsx'
+import Cart from './routes/Cart.jsx'
+import Checkout from './routes/Checkout.jsx'
+import Fin from './routes/Fin.jsx'
+import Catalogo from './routes/Catalogo.jsx'
+import Resultados from './resultados.jsx'
 import Dashboardpage from './routes/Dashboard.jsx';
 
 const router = createBrowserRouter([

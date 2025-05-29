@@ -1,4 +1,4 @@
-import productos from '../../data/juegosAPI';
+import productos from '../../data/Productos';
 import { useCart } from '../../context/CartContext';
 import './Catalogo.css';
 import { useNavigate } from 'react-router-dom';

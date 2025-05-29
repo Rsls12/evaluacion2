@@ -6,7 +6,7 @@ const ListaProductos = () => {
 
   return (
     <div className="lista-pedido">
-      <h3 className="titulo-resumen">Resumen de compra</h3> {/* ✅ nuevo título */}
+      <h3 className="titulo-resumen">Resumen de compra</h3>
       {carrito.map((item) => (
         <div className="item-pedido" key={item.id}>
           <input type="checkbox" checked readOnly className="checkbox" />

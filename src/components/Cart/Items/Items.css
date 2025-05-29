@@ -27,7 +27,7 @@
 .item-nombre {
   font-weight: bold;
   font-size: 15px;
-  margin-bottom: 2px; /* ⬅️ menos espacio entre nombre y descripción */
+  margin-bottom: 2px;
 }
 
 .item-descripcion {

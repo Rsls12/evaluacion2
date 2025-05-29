@@ -1,109 +1,20 @@
 import React, { useState } from 'react';
 import "./resultados.css";  
-
+import productosData from './data/Productos'
 import { filtrarProductos } from "./home/js/busqueda"; 
-
-const productosData = [
-  {
-    id: 1,
-    nombre: "Zanahoria",
-    categoria: "Frutas",
-    precio: 2.99,
-    marca: "Agro",
-    imagen: "/img/zanahoria.png" 
-  },
-  
-  {
-    id: 2,
-    nombre: "Papaya",
-    categoria: "Frutas",
-    precio: 5.99,
-    marca: "Agro",
-    imagen: "/img/papaya.png" 
-  },
-
-  {
-    id: 3,
-    nombre: "Mix de frutas",
-    categoria: "Frutas",
-    precio: 5.69,
-    marca: "Agro",
-    imagen: "/img/frutas.png" 
-  },
-
-  {
-    id: 4,
-    nombre: "Café",
-    categoria: "Desayunos",
-    precio: 5.69,
-    marca: "Altomayo",
-    imagen: "/img/cafe.png" 
-  },
-
-  {
-    id: 5,
-    nombre: "Pollo entero",
-    categoria: "Carnes",
-    precio: 15.99,
-    marca: "San Fernando",
-    imagen: "/img/pollo.png" 
-  },
-
-  {
-    id: 6,
-    nombre: "Leche",
-    categoria: "Lacteos",
-    precio: 8.99,
-    marca: "Gloria",
-    imagen: "/img/gloria.png" 
-  },
-
-   {
-    id: 7,
-    nombre: "Queso",
-    categoria: "Queso",
-    precio: 20.99,
-    marca: "Laive",
-    imagen: "/img/queso.png"
-  },
-
-  {
-    id: 8,
-    nombre: "Aceite",
-    categoria: "Abarrotes",
-    precio: 5.99,
-    marca: "Primor",
-    imagen: "/img/aceite.png" 
-  },
-
-  {
-    id: 9,
-    nombre: "Pan",
-    categoria: "Panaderia",
-    precio: 5.99,
-    marca: "Bimbo",
-    imagen: "/img/bimbo.png" 
-  },
-
-  {
-    id: 10,
-    nombre: "Helado",
-    categoria: "Congelados",
-    precio: 13.99,
-    marca: "Donofrio",
-    imagen: "/img/helado.png" 
-  },
-
-];
-
+import { useNavigate } from 'react-router-dom';
+import { useCart } from './context/CartContext';
 
 function Resultados() {
   const [filtro, setFiltro] = useState('');
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
   const [orden, setOrden] = useState('');
-
   const productosFiltrados = filtrarProductos(productosData, filtro, categoriaSeleccionada, orden);
-
+  const navigate = useNavigate();
+  const irCarrito = () => {
+  navigate('/cart');  
+  };
+  const { agregarAlCarrito } = useCart();
   return (
     <div className="landing-container">
 
@@ -120,7 +31,7 @@ function Resultados() {
           onChange={e => setFiltro(e.target.value)}
         />
         <div className="acciones">
-          <button className="btn-secundario">🛒 Carrito</button>
+          <button onClick={irCarrito} className="btn-secundario">🛒 Carrito</button>
           <button className="btn-secundario">👤 Usuario</button>
         </div>
       </header>
@@ -170,7 +81,7 @@ function Resultados() {
                   <p>{p.categoria}</p>
                   <p>S/{p.precio.toFixed(2)}</p>
                   <p>Marca: {p.marca}</p>
-                  <button className="agregar-btn">Agregar</button>
+                  <button onClick={() => agregarAlCarrito(p)} className="agregar-btn">Agregar</button>
                 </div>
               ))
             ) : (

@@ -1,6 +1,6 @@
 import { useCart } from '../../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
-const PagoQR = ({ volver }) => {
+  const PagoQR = ({ volver }) => {
   const { vaciarCarrito } = useCart();
   const navigate = useNavigate();
 

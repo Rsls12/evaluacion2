@@ -8,9 +8,9 @@
 }
 
 .form-card img {
-  width: 50%;           /* Reducción al 50% del ancho del contenedor */
+  width: 50%;
   display: block;
-  margin: 0 auto 16px auto; /* Centrado horizontal y separación inferior */
+  margin: 0 auto 16px auto;
   border-radius: 6px;
 }
 
