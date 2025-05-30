@@ -721,7 +721,6 @@ function Categorias() {
 
   return (
     <>
-    <Header />
     <div className="app-container">
       {/* Main Content */}
       <main className="main-content">

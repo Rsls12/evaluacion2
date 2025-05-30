@@ -145,10 +145,10 @@ const valores = [
         type="text"
         value={filteredValue}
         onChange={(e) => setFilteredValue(e.target.value)}
-        placeholder='Buscar producto......'
+        placeholder='Buscar Nombre......'
       />
+       <button className='rew' onClick={filterTotal}>Buscar</button>
       </div>
-      <button className='rew' onClick={filterTotal}>Buscar</button>
       <table>
         <thead>
           <tr>

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './app.css';
 import { activarSlider } from './js/slider';
-import Header from '../components/Header/header.jsx';
 
 function App() {
   useEffect(() => {
@@ -11,8 +10,6 @@ function App() {
 
   return (
     <div className="landing-container">
-
-      <Header />
 
       {/* Banner */}
       <section className="banner">

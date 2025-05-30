@@ -17,35 +17,6 @@ function Resultados() {
   const { agregarAlCarrito } = useCart();
   return (
     <div className="landing-container">
-
-      {/* Header */}
-      <header className="top-header">
-        <div className="logo">
-          Mi-Tiendita<span className="dot">•</span>
-        </div>
-        <input
-          type="text"
-          className="search"
-          placeholder="Buscar un producto..."
-          value={filtro}
-          onChange={e => setFiltro(e.target.value)}
-        />
-        <div className="acciones">
-          <button onClick={irCarrito} className="btn-secundario">🛒 Carrito</button>
-          <button className="btn-secundario">👤 Usuario</button>
-        </div>
-      </header>
-
-      {/* Menú */}
-      <nav className="menu">
-        <ul>
-          <li>Categorías</li>
-          <li>Productos</li>
-          <li>Nosotros</li>
-          <li className="ofertas">⭐ OFERTAS</li>
-        </ul>
-      </nav>
-
       {/* Filtro lateral y resultados */}
       <div className="contenedor-resultados">
         <aside className="filtro-categorias">

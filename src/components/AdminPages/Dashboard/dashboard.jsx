@@ -149,7 +149,6 @@ function Dashboard() {
 
   return (
     <>
-    <Header/>
     <div className="dashboard">
       <h1>Dashboard</h1>
 

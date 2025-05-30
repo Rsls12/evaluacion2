@@ -1,8 +1,7 @@
-import { StrictMode } from 'react';
+import { Children, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import CartProvider from "./context/CartContext.jsx"
-
 import './index.css';
 import App from './home/app.jsx'
 import Cart from './routes/Cart.jsx'
@@ -16,20 +15,27 @@ import Comp from './components/Usuarios/ListaU/Comp.jsx';
 import Fijo from './components/Usuarios/Dett/Fijo.jsx';
 import Orden from './components/Usuarios/Orden/Orden.jsx';
 import Listilla from './components/Usuarios/Listilla/Listilla.jsx';
+import RootWrapper from './components/RootWrapper.jsx';
 const router = createBrowserRouter([
-  { path: '/', element: <App /> },
-  { path: '/cart', element: <Cart /> },
-  { path: '/form', element: <Checkout /> },
-  { path: '/end', element: <Fin /> },
-  { path: '/catalogo', element: <Catalogo /> },
-  { path: '/resultados', element: <Resultados /> },
-  { path: '/dashboard', element: <Dashboardpage /> },
-  { path: '/Categorias', element: <Cate /> },
-  {path:'/usuarios',element:<Comp/>},
-  {path:'/fijo',element:<Fijo/>},
-  {path:'/orden',element:<Orden/>},  
-  {path:'/lista',element:<Listilla/>}
-])
+  {
+    path: '/',
+    element: <RootWrapper />,
+    children: [
+      { path: '/', element: <App /> },
+      { path: '/cart', element: <Cart /> },
+      { path: '/form', element: <Checkout /> },
+      { path: '/end', element: <Fin /> },
+      { path: '/catalogo', element: <Catalogo /> },
+      { path: '/resultados', element: <Resultados /> },
+      { path: '/dashboard', element: <Dashboardpage /> },
+      { path: '/Categorias', element: <Cate /> },
+      { path: '/usuarios', element: <Comp /> },
+      { path: '/fijo', element: <Fijo /> },
+      { path: '/orden', element: <Orden /> },
+      { path: '/lista', element: <Listilla /> },
+    ]
+  }
+]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

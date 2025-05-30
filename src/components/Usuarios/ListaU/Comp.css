@@ -55,3 +55,6 @@ table tr td button{
 .robert{
     display: flex;
 }
+.robert input{
+    width: 800px;
+}
