@@ -1,6 +1,10 @@
 import { useState } from "react"
 import  Header  from "../../components/Header/header.jsx";
 import "./ListaCategorias.css"
+import TablaCategorias from "./CateTabla/TablaCategorias.jsx";
+import Pagination from "./Paginacion/Pag.jsx"
+
+
 
 // Iconos como componentes SVG
 const SearchIcon = () => (
@@ -749,75 +753,26 @@ function Categorias() {
               <span>Agregar categoría</span>
             </button>
           </div>
-
-          {/* Table */}
-          <div className="table-container">
-            <table className="categories-table">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentCategories.length > 0 ? (
-                  currentCategories.map((category, index) => (
-                    <tr key={category.id} className={index % 2 === 0 ? "" : "row-alternate"}>
-                      <td className="category-name">{category.name}</td>
-                      <td className="category-description">{category.description}</td>
-                      <td className="category-actions">
-                        <div className="action-buttons">
-                          <button onClick={() => handleEdit(category.id)} className="edit-button">
-                            <EditIcon />
-                          </button>
-                          <button onClick={() => handleDelete(category.id)} className="delete-button">
-                            <DeleteIcon />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="3" className="no-results">
-                      No se encontraron categorías que coincidan con la búsqueda.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-
+          <TablaCategorias
+            categories={currentCategories}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="pagination-container">
-              <div className="pagination">
-                <button
-                  onClick={() => goToPage(currentPage - 1)}
-                  className="pagination-arrow"
-                  disabled={currentPage === 1}
-                >
-                  <ChevronLeftIcon />
-                </button>
-
-                <div className="pagination-numbers">{renderPaginationNumbers()}</div>
-
-                <button
-                  onClick={() => goToPage(currentPage + 1)}
-                  className="pagination-arrow"
-                  disabled={currentPage === totalPages}
-                >
-                  <ChevronRightIcon />
-                </button>
-              </div>
-
+            <>
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={goToPage}
+              />
               <div className="pagination-info">
                 Página {currentPage} de {totalPages} | Mostrando {startIndex + 1}-
                 {Math.min(endIndex, filteredCategories.length)} de {filteredCategories.length} categorías
               </div>
-            </div>
+            </>
           )}
+
         </div>
       </main>
     </div>
