@@ -16,6 +16,11 @@ import Fijo from './components/Usuarios/Dett/Fijo.jsx';
 import Orden from './components/Usuarios/Orden/Orden.jsx';
 import Listilla from './components/Usuarios/Listilla/Listilla.jsx';
 import RootWrapper from './components/RootWrapper.jsx';
+import Login from './components/alumno3/Login.jsx';
+import Register from './components/alumno3/register.jsx';
+import Recover from './components/alumno3/Recover.jsx';
+import DashboardAlumno3 from './components/alumno3/Dashboard.jsx';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -33,6 +38,10 @@ const router = createBrowserRouter([
       { path: '/fijo', element: <Fijo /> },
       { path: '/orden', element: <Orden /> },
       { path: '/lista', element: <Listilla /> },
+      { path: '/login', element: <Login /> },
+      { path: '/register', element: <Register /> },
+      { path: '/recover', element: <Recover /> },
+      { path: '/dashboardalumno3', element: <DashboardAlumno3 /> }
     ]
   }
 ]);

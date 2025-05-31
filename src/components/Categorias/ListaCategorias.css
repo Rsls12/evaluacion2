@@ -13,19 +13,20 @@ body {
 }
 
 .app-container {
-    display: flex;
   background-color: white;
+  width: 100%;
+  display: block;
+}
+.main-content {
+  padding: 24px;
+  width: 100%;
 }
 /* Main content styles */
-.main-content {
-    width: 66.5%;
-}
-
 .content-card {
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  width: 150%;
+  width: 100%;
 }
 
 .card-header {
@@ -112,7 +113,6 @@ body {
 .categories-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
 }
 
 .categories-table th {

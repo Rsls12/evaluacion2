@@ -17,6 +17,10 @@ const HeaderPre = () => {
   navigate('/cart');  
   };
 
+  const irLogin = () => {
+    navigate('/login');
+  };
+
   return (
     <>
             <header className="top-header">
@@ -37,7 +41,7 @@ const HeaderPre = () => {
 
         <div className="acciones">
           <button onClick={irCarrito} className="btn-secundario">🛒 Carrito</button>
-          <button className="btn-secundario">👤 Usuario</button>
+          <button onClick={irLogin} className="btn-secundario">👤 Usuario</button>
         </div>
       </header>
     </>
