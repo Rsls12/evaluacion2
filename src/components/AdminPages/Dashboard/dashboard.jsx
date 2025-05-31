@@ -216,7 +216,7 @@ function Dashboard() {
 
         {/* User Details */}
         <div className="user-details">
-          <h2>Detalle del usuario</h2>
+            
 
           {selectedUser ? (
             <div className="user-profile">
@@ -235,7 +235,7 @@ function Dashboard() {
               </div>
 
               <div className="transactions-table">
-                <table>
+                <table class='transactions-table-principal'>
                   <thead>
                     <tr>
                       <th>#ID</th>
