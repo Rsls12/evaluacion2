@@ -185,6 +185,7 @@ tr:last-child td {
   font-size: 12px;
   cursor: pointer;
   transition: background-color 0.2s;
+  width: 80px
 }
 
 .btn-deactivate:hover {

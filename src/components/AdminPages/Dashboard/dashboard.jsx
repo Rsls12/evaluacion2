@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import  Header  from "../../../components/Header/header.jsx";
 import './adminStyle.css';
 import Pagination from '../../Categorias/Paginacion/Pag.jsx';
+import TablaCategorias from '../../Categorias/CateTabla/TablaCategorias.jsx';
 
 // Generate fake user data
 const generateUsers = () => {
@@ -130,39 +131,29 @@ function Dashboard() {
           </div>
 
           <div className="table-container">
-            <table className="users-table">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Estado</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentUsers.map((user) => (
-                  <tr key={user.id}>
-                    <td>
-                      <div className="user-info">
-                        <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="user-avatar" />
-                        <span>{user.name}</span>
-                      </div>
-                    </td>
-                    <td>
-                      <span className={`status ${user.status.toLowerCase()}`}>{user.status}</span>
-                    </td>
-                    <td>
-                      <div className="actions">
-                        <button className="btn-deactivate">{user.status === 'Activo' ? 'Desactivar' : 'Activar'}</button>
-                        <button className="btn-details" onClick={() => handleUserSelect(user)}>
-                          Ver detalles
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
+            <TablaCategorias class="users-table"
+                  headers={["Nombre", "Estado", "Acciones"]}
+                  data={currentUsers}
+                  renderRow={(item) => (
+                    <>
+                      <td>
+                        <div className="user-info">
+                          <img src={item.avatar || "/placeholder.svg"} alt={item.name} className="user-avatar" />
+                          <span>{item.name}</span>
+                        </div>
+                      </td>
+                      <td><span className={`status ${item.status.toLowerCase()}`}>{item.status}</span></td>
+                      <td>
+                        <div className="actions">
+                          <button className="btn-deactivate">{item.status === 'Activo' ? 'Desactivar' : 'Activar'}</button>
+                          <button className="btn-details" onClick={() => handleUserSelect(item)}>
+                            Ver detalles
+                          </button>
+                        </div>
+                      </td>
+                    </>
+                  )}
+            />
             <Pagination currentPage={usersPage} totalPages={totalUsersPages} onPageChange={setUsersPage} />
           </div>
         </div>
@@ -188,24 +179,17 @@ function Dashboard() {
               </div>
 
               <div className="transactions-table">
-                <table class='transactions-table-principal'>
-                  <thead>
-                    <tr>
-                      <th>#ID</th>
-                      <th>Fecha</th>
-                      <th>Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {transactions.map((transaction, index) => (
-                      <tr key={index}>
-                        <td className="transaction-id">{transaction.id}</td>
-                        <td>{transaction.date}</td>
-                        <td>{transaction.total}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <TablaCategorias class="transactions-table-principal"
+                  headers={["#ID", "Fecha", "Total"]}
+                  data={transactions}
+                  renderRow={(item) => (
+                    <>
+                      <td className='transaction-id'>{item.id}</td>
+                      <td>{item.date}</td>
+                      <td>{item.total}</td>
+                    </>
+                  )}
+                />
               </div>
             </div>
           ) : (
@@ -227,31 +211,19 @@ function Dashboard() {
         </div>
 
         <div className="table-container">
-          <table className="orders-table">
-            <thead>
-              <tr>
-                <th>#ID</th>
-                <th>Usuario</th>
-                <th>Fecha de orden</th>
-                <th>Total</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentOrders.map((order, index) => (
-                <tr key={index}>
-                  <td className="order-id">{order.id}</td>
-                  <td>{order.user}</td>
-                  <td>{order.date}</td>
-                  <td>{order.total}</td>
-                  <td>
-                    <span className="status entregado">{order.status}</span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
+          <TablaCategorias class="orders-table"
+                  headers={["#ID", "Usuario", "Fecha de orden", "Total", "Estado"]}
+                  data={currentOrders}
+                  renderRow={(item) => (
+                    <>
+                      <td className='transaction-id'>{item.id}</td>
+                      <td>{item.user}</td>
+                      <td>{item.date}</td>
+                      <td>{item.total}</td>
+                      <td><span className={"status entregado"}>{item.status}</span></td>
+                    </>
+                  )}
+          />
           <Pagination currentPage={ordersPage} totalPages={totalOrdersPages} onPageChange={setOrdersPage} />
         </div>
       </div>

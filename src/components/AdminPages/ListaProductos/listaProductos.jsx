@@ -3,6 +3,7 @@ import "./listaProductos.css"
 import Pagination from "../../Categorias/Paginacion/Pag"
 import filterItems from "./filterProductos.jsx"
 import { useNavigate } from 'react-router-dom';
+import TablaCategorias from "../../Categorias/CateTabla/TablaCategorias.jsx"
 
 // Generate fake product data
 const generateProducts = () => {
@@ -209,52 +210,36 @@ function ProductsList() {
       </div>
 
       {/* Products Table */}
-      <div className="table-container">
-        <table className="products-table">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Nombre</th>
-              <th>Presentación</th>
-              <th>Descripción</th>
-              <th>Categoría</th>
-              <th>Stock</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentProducts.map((product) => (
-              <tr key={product.id}>
-                <td>
-                  <span className="product-id">{product.id}</span>
-                </td>
+      <div className="products-table">
+        <TablaCategorias class="transactions-table-principal"
+            headers={["Id", "Nombre", "Presentación", "Descripción", "Categoría", "Stock", "Acciones"]}
+            data={currentProducts}
+            renderRow={(item) => (
+              <>
+                <td><span className="product-id">{item.id}</span></td>
                 <td>
                   <div className="product-name">
-                    <span className="product-emoji">{product.image}</span>
-                    <span>{product.name}</span>
+                    <span className="product-emoji">{item.image}</span>
+                    <span>{item.name}</span>
                   </div>
                 </td>
-                <td>{product.presentation}</td>
-                <td className="description-cell">{product.description}</td>
-                <td>{product.category}</td>
-                <td>
-                  <span className="stock-number">{product.stock}</span>
-                </td>
+                <td>{item.presentation}</td>
+                <td className="description-cell">{item.description}</td>
+                <td>{item.category}</td>
+                <td><span className="stock-number">{item.stock}</span></td>
                 <td>
                   <div className="actions">
-                    <button onClick={() => handleEdit(product.id)} className="edit-btn" title="Editar producto">
+                    <button onClick={() => handleEdit(item.id)} className="edit-btn" title="Editar producto">
                       ✏️
                     </button>
-                    <button onClick={() => handleDelete(product.id)} className="delete-btn" title="Eliminar producto">
+                    <button onClick={() => handleDelete(item.id)} className="delete-btn" title="Eliminar producto">
                       🗑️
                     </button>
                   </div>
                 </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
+              </>
+            )}
+        />
         {filteredProducts.length === 0 && (
           <div className="no-products">
             <p>No se encontraron productos que coincidan con tu búsqueda.</p>
