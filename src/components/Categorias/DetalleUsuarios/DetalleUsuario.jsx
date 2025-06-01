@@ -2,11 +2,14 @@ import { useState } from "react"
 import "./DeUsuario.css"
 import Pagination from "../Paginacion/Pag.jsx"
 import TablaCategorias from "../CateTabla/TablaCategorias.jsx"
+import CambiarPass from "../CambioContraseña/CambiarPass.jsx"
 
 function DetalleUsuario() {
   const [search, setSearch] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 7
+  const [mostrarCambio, setMostrarCambio] = useState(false)
+  const [showSuccessMsg, setShowSuccessMsg] = useState(false)
 
   const allOrders = [
     { id: "#1000", user: "Juan Perez", date: "20/01/2025", total: "S/199.00", status: "Entregado" },
@@ -40,6 +43,11 @@ function DetalleUsuario() {
           <p><strong>Nombre:</strong> Juan Perez</p>
           <p><strong>Correo:</strong> juan.perez@gmail.com</p>
           <p><strong>Fecha de registro:</strong> 20/01/2025</p>
+
+          {/* BOTÓN DE CAMBIAR CONTRASEÑA */}
+          <button onClick={() => setMostrarCambio(true)} className="btn-cambiar-pass">
+            Cambiar contraseña
+          </button>
         </div>
 
         <div className="box">
@@ -66,6 +74,22 @@ function DetalleUsuario() {
         />
       </div>
 
+      {/* MENSAJE DE ÉXITO */}
+      {showSuccessMsg && (
+        <div className="success-message">Su contraseña se ha cambiado correctamente</div>
+      )}
+
+      {/* MODAL DE CAMBIO DE CONTRASEÑA */}
+      <CambiarPass
+        isOpen={mostrarCambio}
+        onClose={() => setMostrarCambio(false)}
+        onSuccess={() => {
+          setMostrarCambio(false)
+          setShowSuccessMsg(true)
+          setTimeout(() => setShowSuccessMsg(false), 3000)
+        }}
+      />
+
       <div className="order-section">
         <h3>Tus órdenes</h3>
         <div className="order-search">
@@ -82,24 +106,23 @@ function DetalleUsuario() {
         </div>
 
         <TablaCategorias
-            headers={["#ORDEN", "Usuario", "Fecha de órden", "Total", "Estado", "Acciones"]}
-            data={currentOrders}
-            renderRow={(order, index) => (
-                <>
-                <td className="order-id">{order.id}</td>
-                <td>{order.user}</td>
-                <td>{order.date}</td>
-                <td>{order.total}</td>
-                <td className={order.status === "Entregado" ? "success" : "warning"}>
-                    {order.status}
-                </td>
-                <td>
-                    <button className="btn-detail">Ver detalle</button>
-                </td>
-                </>
-            )}
-            />
-
+          headers={["#ORDEN", "Usuario", "Fecha de órden", "Total", "Estado", "Acciones"]}
+          data={currentOrders}
+          renderRow={(order, index) => (
+            <>
+              <td className="order-id">{order.id}</td>
+              <td>{order.user}</td>
+              <td>{order.date}</td>
+              <td>{order.total}</td>
+              <td className={order.status === "Entregado" ? "success" : "warning"}>
+                {order.status}
+              </td>
+              <td>
+                <button className="btn-detail">Ver detalle</button>
+              </td>
+            </>
+          )}
+        />
 
         {totalPages > 1 && (
           <Pagination

@@ -42,6 +42,7 @@ const HeaderPre = () => {
         <div className="acciones">
           <button onClick={irCarrito} className="btn-secundario">🛒 Carrito</button>
           <button onClick={irLogin} className="btn-secundario">👤 Usuario</button>
+
         </div>
       </header>
     </>
@@ -49,12 +50,13 @@ const HeaderPre = () => {
 };
 
 const Header = () => {
+   const navigate = useNavigate();
   return (
     <div className="landing-container">
       <HeaderPre />
       <nav className="menu">
         <ul>
-          <li>Categorías</li>
+          <li onClick={() => navigate('/Categorias')}>Categorías</li>
           <li>Productos</li>
           <li>Nosotros</li>
           <li className="ofertas">⭐ OFERTAS</li>

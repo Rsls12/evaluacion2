@@ -21,6 +21,8 @@ import Register from './components/alumno3/register.jsx';
 import Recover from './components/alumno3/Recover.jsx';
 import DashboardAlumno3 from './components/alumno3/Dashboard.jsx';
 import Det from './routes/DetalleU.jsx';
+import DetOrden from './routes/DetalleO.jsx';
+import NuevaCate from './routes/New.jsx';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +45,9 @@ const router = createBrowserRouter([
       { path: '/register', element: <Register /> },
       { path: '/recover', element: <Recover /> },
       { path: '/dashboardalumno3', element: <DashboardAlumno3 /> },
-      { path: '/detalleUsuario', element: <Det /> }
+      { path: '/detalleUsuario', element: <Det /> },
+      { path: '/detalleOrden', element: <DetOrden /> },
+      { path: '/nuevaCategoria', element: <NuevaCate /> }
 
     ]
   }
