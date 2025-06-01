@@ -21,15 +21,13 @@ import Login from './components/alumno3/Login.jsx';
 import Register from './components/alumno3/register.jsx';
 import Recover from './components/alumno3/Recover.jsx';
 import DashboardAlumno3 from './components/alumno3/Dashboard.jsx';
-import Det from './components/Usuarios/DetallesProducto/Det.jsx';
-import DetOrden from './components/Usuarios/DetalleOrden/DetOrden.jsx';
-import NuevaCate from './components/Categorias/NuevaCategoria/NuevaCate.jsx';
-
+import DetalleO from './routes/DetalleO.jsx';
+import DetalleU from './routes/DetalleU.jsx';
 import ProductsListF from './routes/listProducts.jsx';
 import AgregarProducto from './routes/AgregarProducto.jsx';
 import DetalleProducto from "./routes/DetalleProducto.jsx";
 import ProductoDetalle from './home/ProductoDetalle.jsx';
-
+import New from './routes/New.jsx';
 
 const router = createBrowserRouter([
   {
@@ -53,9 +51,9 @@ const router = createBrowserRouter([
       { path: '/register', element: <Register /> },
       { path: '/recover', element: <Recover /> },
       { path: '/dashboardalumno3', element: <DashboardAlumno3 /> },
-      { path: '/detalleUsuario', element: <Det /> },
-      { path: '/detalleOrden', element: <DetOrden /> },
-      { path: '/nuevaCategoria', element: <NuevaCate /> },
+      { path: '/orden', element: <DetalleO /> },
+      { path: '/usuario', element: <DetalleU /> },
+      { path: '/nuevaCategoria', element: <New /> },
       { path: '/listaProductos', element: <ProductsListF /> },
       { path: '/agregarProducto', element: <AgregarProducto /> },
       { path: '/modificarProducto', element: <DetalleProducto /> }
