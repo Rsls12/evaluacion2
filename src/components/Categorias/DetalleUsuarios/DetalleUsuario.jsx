@@ -3,7 +3,7 @@ import "./DeUsuario.css"
 import Pagination from "../Paginacion/Pag.jsx"
 import TablaCategorias from "../CateTabla/TablaCategorias.jsx"
 import CambiarPass from "../CambioContraseña/CambiarPass.jsx"
-
+import filterItems from "../../AdminPages/ListaProductos/filterProductos.jsx"
 function DetalleUsuario() {
   const [search, setSearch] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
@@ -21,12 +21,14 @@ function DetalleUsuario() {
     { id: "#1006", user: "Marco Aurelio", date: "20/01/2025", total: "S/199.00", status: "Entregado" },
     { id: "#1007", user: "Ana Días", date: "20/01/2025", total: "S/199.00", status: "Entregado" },
     { id: "#1008", user: "Juan Perez", date: "20/01/2025", total: "S/199.00", status: "Entregado" },
-    { id: "#1009", user: "María Gonzales", date: "20/01/2025", total: "S/199.00", status: "Por entregar" },
+    { id: "#1009", user: "María Gonzales", date: "30/01/2025", total: "S/199.00", status: "Por entregar" },
   ]
 
-  const filteredOrders = allOrders.filter((order) =>
-    order.id.toLowerCase().includes(search.toLowerCase())
-  )
+  const filteredOrders = filterItems(
+  allOrders,
+  search,
+  ["id", "date", "user", "total", "status"],
+)
 
   const totalPages = Math.ceil(filteredOrders.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage

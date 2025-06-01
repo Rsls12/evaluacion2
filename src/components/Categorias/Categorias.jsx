@@ -3,6 +3,7 @@ import  Header  from "../../components/Header/header.jsx";
 import "./ListaCategorias.css"
 import TablaCategorias from "./CateTabla/TablaCategorias.jsx";
 import Pagination from "./Paginacion/Pag.jsx"
+import filterItems from "../AdminPages/ListaProductos/filterProductos.jsx"
 
 
 
@@ -576,12 +577,11 @@ function Categorias() {
   ]
 
   // Filtrar categorías basado en el término de búsqueda
-  const filteredCategories = allCategories.filter(
-    (category) =>
-      category.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      category.description.toLowerCase().includes(searchTerm.toLowerCase()),
-  )
-
+  const filteredCategories = filterItems(
+  allCategories,
+  searchTerm,
+  ["name", "description"]
+)
   // Calcular paginación
   const totalPages = Math.ceil(filteredCategories.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import "./productForm.css"
+import NewCate from "../../Categorias/NuevaCategoria/NewCate.jsx"
 
 function ProductForm({
   mode = "add", // "add" o "edit"
@@ -7,7 +8,8 @@ function ProductForm({
   onSubmit,
   onCancel,
 }) {
-  // Estado para los datos del formulario
+  const [mostrarModalCategoria, setMostrarModalCategoria] = useState(false)
+
   const [formData, setFormData] = useState({
     name: "",
     presentation: "",
@@ -18,13 +20,9 @@ function ProductForm({
     status: "Activo",
   })
 
-  // Estado para la vista previa de la imagen
   const [imagePreview, setImagePreview] = useState(null)
-
-  // Referencia al input de tipo file
   const fileInputRef = useRef()
 
-  // Lista de categorías disponibles
   const categories = [
     "Frutas y verduras",
     "Lácteos y huevos",
@@ -35,7 +33,6 @@ function ProductForm({
     "Limpieza",
   ]
 
-  // Efecto para cargar datos iniciales en modo edición
   useEffect(() => {
     if (mode === "edit" && initialData) {
       setFormData({
@@ -54,7 +51,6 @@ function ProductForm({
     }
   }, [mode, initialData])
 
-  // Manejar cambios en los inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData({
@@ -63,22 +59,14 @@ function ProductForm({
     })
   }
 
-  // Manejar la subida de la imagen
   const handleImageUpload = (e) => {
     const file = e.target.files[0]
     if (!file) return
-
-    setFormData({
-      ...formData,
-      image: file,
-    })
-
-    // Crear URL para la vista previa
+    setFormData({ ...formData, image: file })
     const previewURL = URL.createObjectURL(file)
     setImagePreview(previewURL)
   }
 
-  // Manejar el drag & drop
   const handleDragOver = (e) => {
     e.preventDefault()
     e.currentTarget.classList.add("dragover")
@@ -91,26 +79,17 @@ function ProductForm({
   const handleDrop = (e) => {
     e.preventDefault()
     e.currentTarget.classList.remove("dragover")
-
     const file = e.dataTransfer.files[0]
     if (!file) return
-
-    setFormData({
-      ...formData,
-      image: file,
-    })
-
-    // Crear URL para la vista previa
+    setFormData({ ...formData, image: file })
     const previewURL = URL.createObjectURL(file)
     setImagePreview(previewURL)
   }
 
-  // Manejar el clic en el botón de seleccionar imagen
   const handleSelectImage = () => {
     fileInputRef.current.click()
   }
 
-  // Manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -121,7 +100,6 @@ function ProductForm({
       alert(`Producto ${mode === "add" ? "creado" : "editado"} con éxito!`)
 
       if (mode === "add") {
-        // Resetear el formulario solo en modo agregar
         setFormData({
           name: "",
           presentation: "",
@@ -136,16 +114,10 @@ function ProductForm({
     }
   }
 
-  // Manejar el botón de agregar categoría
   const handleAddCategory = () => {
-    const newCategory = prompt("Ingrese el nombre de la nueva categoría:")
-    if (newCategory && newCategory.trim() !== "") {
-      console.log("Nueva categoría:", newCategory)
-      alert(`Categoría "${newCategory}" agregada!`)
-    }
+    setMostrarModalCategoria(true) // 🔥 Muestra la modal emergente
   }
 
-  // Determinar el título y texto del botón según el modo
   const title = mode === "add" ? "Agregar un producto" : "Editar"
   const buttonText = mode === "add" ? "+ Crear producto" : "✏️ Editar producto"
 
@@ -193,7 +165,13 @@ function ProductForm({
               <div className="form-group">
                 <label htmlFor="category">Categoría</label>
                 <div className="category-container">
-                  <select id="category" name="category" value={formData.category} onChange={handleInputChange} required>
+                  <select
+                    id="category"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleInputChange}
+                    required
+                  >
                     <option value="" disabled>
                       Seleccione la categoría del producto
                     </option>
@@ -203,9 +181,18 @@ function ProductForm({
                       </option>
                     ))}
                   </select>
-                  <button type="button" className="add-category-btn" onClick={handleAddCategory}>
+                  <button
+                    type="button"
+                    className="add-category-btn"
+                    onClick={handleAddCategory}
+                  >
                     +
                   </button>
+
+                  <NewCate
+                    isOpen={mostrarModalCategoria}
+                    onClose={() => setMostrarModalCategoria(false)}
+                  />
                 </div>
               </div>
 
@@ -233,7 +220,7 @@ function ProductForm({
                   onDrop={handleDrop}
                 >
                   {imagePreview ? (
-                    <img src={imagePreview || "/placeholder.svg"} alt="Vista previa" className="image-preview" />
+                    <img src={imagePreview} alt="Vista previa" className="image-preview" />
                   ) : (
                     <>
                       <div className="image-placeholder">
