@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Listau from '../ListaU/Listau.jsx';
+import Listau from './Listau.jsx';
 import './Comp.css'
 const Comp = () => {
 const valores = [

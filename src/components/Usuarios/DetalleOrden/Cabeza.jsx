@@ -1,6 +1,6 @@
 import React from 'react'
 import './Cabeza.css'
-const cabeza = () => {
+const Cabeza = () => {
   return (
     <>
     <div className='ordenes'>
@@ -17,9 +17,9 @@ const cabeza = () => {
         <p>S/400</p>
     </div>
     </div>
-    <h1 className='reeee'>Productos Ordenados</h1>
+    <h1 className='productos ordenados'>Productos Ordenados</h1>
     </>
   )
 }
 
-export default cabeza
+export default Cabeza

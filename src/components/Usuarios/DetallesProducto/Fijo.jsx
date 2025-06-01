@@ -1,6 +1,6 @@
 import React from 'react';
 import UserDetail from './UserDetail';
-import '../Dett/Fijo.css'
+import '../DetallesProducto/Fijo.css'
 const Fijo = () => {
   const usuarioSeleccionado = {
     nombre: 'Juan Perez',
