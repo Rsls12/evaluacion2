@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  Header  from "../../../components/Header/header.jsx";
 import './adminStyle.css';
+import Pagination from '../../Categorias/Paginacion/Pag.jsx';
 
 // Generate fake user data
 const generateUsers = () => {
@@ -72,56 +73,6 @@ const generateTransactions = () => {
     { id: "#1238", date: "20/03/2025", total: "$/199.00" },
     { id: "#1239", date: "20/03/2025", total: "$/199.00" },
   ]
-}
-
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const getVisiblePages = () => {
-    const pages = []
-    const maxVisible = 5
-
-    if (totalPages <= maxVisible) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i)
-      }
-    } else {
-      if (currentPage <= 3) {
-        pages.push(1, 2, 3, "...", totalPages)
-      } else if (currentPage >= totalPages - 2) {
-        pages.push(1, "...", totalPages - 2, totalPages - 1, totalPages)
-      } else {
-        pages.push(1, "...", currentPage, "...", totalPages)
-      }
-    }
-
-    return pages
-  }
-
-  return (
-    <div className="pagination">
-      <button onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1} className="pagination-arrow">
-        ‹
-      </button>
-
-      {getVisiblePages().map((page, index) => (
-        <button
-          key={index}
-          onClick={() => typeof page === "number" && onPageChange(page)}
-          className={`pagination-btn ${currentPage === page ? "active" : ""} ${typeof page !== "number" ? "dots" : ""}`}
-          disabled={typeof page !== "number"}
-        >
-          {page}
-        </button>
-      ))}
-
-      <button
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className="pagination-arrow"
-      >
-        ›
-      </button>
-    </div>
-  )
 }
 
 function Dashboard() {
@@ -216,7 +167,7 @@ function Dashboard() {
 
         {/* User Details */}
         <div className="user-details">
-          <h2>Detalle del usuario</h2>
+            
 
           {selectedUser ? (
             <div className="user-profile">
@@ -235,7 +186,7 @@ function Dashboard() {
               </div>
 
               <div className="transactions-table">
-                <table>
+                <table class='transactions-table-principal'>
                   <thead>
                     <tr>
                       <th>#ID</th>
