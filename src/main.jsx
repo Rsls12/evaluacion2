@@ -8,7 +8,8 @@ import Cart from './routes/Cart.jsx'
 import Checkout from './routes/Checkout.jsx'
 import Fin from './routes/Fin.jsx'
 import Catalogo from './routes/Catalogo.jsx'
-import Resultados from './resultados.jsx'
+import Resultados from "./home/resultados.jsx";
+
 import Dashboardpage from './routes/Dashboard.jsx';
 import Cate from './routes/ListaCate.jsx';
 import Comp from './components/Usuarios/ListaU/Comp.jsx';
@@ -20,6 +21,7 @@ import Login from './components/alumno3/Login.jsx';
 import Register from './components/alumno3/register.jsx';
 import Recover from './components/alumno3/Recover.jsx';
 import DashboardAlumno3 from './components/alumno3/Dashboard.jsx';
+import ProductoDetalle from './home/ProductoDetalle.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,7 @@ const router = createBrowserRouter([
       { path: '/end', element: <Fin /> },
       { path: '/catalogo', element: <Catalogo /> },
       { path: '/resultados', element: <Resultados /> },
+      { path: '/producto/:id', element: <ProductoDetalle /> },
       { path: '/dashboard', element: <Dashboardpage /> },
       { path: '/Categorias', element: <Cate /> },
       { path: '/usuarios', element: <Comp /> },
