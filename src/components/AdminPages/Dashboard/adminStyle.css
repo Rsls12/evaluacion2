@@ -41,7 +41,7 @@
 /* ACA ME QUEDE */
 .main-content {
   display: grid;
-  grid-template-columns: 1fr 400px;
+  grid-template-columns: 2fr 1fr;
   gap: 24px;
   margin-bottom: 32px;
 }
@@ -90,8 +90,24 @@
 }
 
 table {
-  width: 100%;
+  width: 50%;
   border-collapse: collapse;
+}
+
+.users-table{
+    width: 650px;
+}
+
+.user-details{
+    justify-content: center;
+}
+
+.transactions-table {
+  width: 500px;
+}
+
+.transactions-table-principal {
+  width: 100%;
 }
 
 th {
@@ -196,6 +212,7 @@ tr:last-child td {
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   height: fit-content;
+  width: 650px;
 }
 
 .user-details h2 {
