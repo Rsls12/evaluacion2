@@ -98,6 +98,8 @@ function Dashboard() {
     setSelectedUser(user)
   }
 
+  const navigate = useNavigate();
+
   return (
     <>
     <div className="dashboard">
@@ -219,7 +221,7 @@ function Dashboard() {
         <div className="section-header">
           <h2>Listado de órdenes</h2>
           <div className="orders-actions">
-            <button className="btn-products">Ver productos</button>
+            <button onClick={() => navigate('/listaProductos')} className="btn-products">Ver productos</button>
             <button className="btn-view-orders">Ver todas las órdenes</button>
           </div>
         </div>

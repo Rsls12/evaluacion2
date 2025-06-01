@@ -49,6 +49,11 @@ const HeaderPre = () => {
 };
 
 const Header = () => {
+  const navigate = useNavigate();
+  const irDashboard = () => {
+    navigate('/dashboard');
+  }
+  
   return (
     <div className="landing-container">
       <HeaderPre />
@@ -56,7 +61,7 @@ const Header = () => {
         <ul>
           <li>Categorías</li>
           <li>Productos</li>
-          <li>Nosotros</li>
+          <li onClick={irDashboard}>Dashboard</li>
           <li className="ofertas">⭐ OFERTAS</li>
         </ul>
       </nav>

@@ -20,6 +20,9 @@ import Login from './components/alumno3/Login.jsx';
 import Register from './components/alumno3/register.jsx';
 import Recover from './components/alumno3/Recover.jsx';
 import DashboardAlumno3 from './components/alumno3/Dashboard.jsx';
+import ProductsListF from './routes/listProducts.jsx';
+import AgregarProducto from './routes/AgregarProducto.jsx';
+import DetalleProducto from "./routes/DetalleProducto.jsx"
 
 const router = createBrowserRouter([
   {
@@ -41,7 +44,10 @@ const router = createBrowserRouter([
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
       { path: '/recover', element: <Recover /> },
-      { path: '/dashboardalumno3', element: <DashboardAlumno3 /> }
+      { path: '/dashboardalumno3', element: <DashboardAlumno3 /> },
+      { path: '/listaProductos', element: <ProductsListF /> },
+      { path: '/agregarProducto', element: <AgregarProducto /> },
+      { path: '/modificarProducto', element: <DetalleProducto /> }
     ]
   }
 ]);
