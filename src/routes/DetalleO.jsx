@@ -1,9 +1,9 @@
 import DetalleOrden from '../components/Categorias/DetalleOrden/DetalleOrden.jsx';
 
-const DetOrden= () => {
+const DetO= () => {
     return (
         <DetalleOrden />
     )
 }
 
-export default DetOrden;
+export default DetO;

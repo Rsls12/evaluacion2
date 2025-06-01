@@ -1,9 +1,9 @@
 import NewCate from '../components/Categorias/NuevaCategoria/NewCate.jsx';
 
-const NuevaCate= () => {
+const New= () => {
     return (
         <NewCate />
     )
 }
 
-export default NuevaCate;
+export default New;

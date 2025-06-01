@@ -5,13 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const HeaderPre = () => {
   const [busqueda, setBusqueda] = useState('');
 
-  const manejarBusqueda = (e) => {
-    if (e.key === 'Enter') {
-      // Puedes hacer una búsqueda aquí o redirigir
-      console.log('Buscar:', busqueda);
-    }
-  };
-
   const navigate = useNavigate();
   const irCarrito = () => {
   navigate('/cart');  
@@ -21,21 +14,32 @@ const HeaderPre = () => {
     navigate('/login');
   };
 
+    const irAResultados = () => {
+    navigate('/resultados');
+  };
+  
+  const irAInicio = () => {
+  navigate('/');
+};
+
+
+
   return (
     <>
             <header className="top-header">
-        <div className="logo">
-          Mi-Tiendita<span className="dot">•</span>
-        </div>
+      <div
+      className="logo"
+      onClick={irAInicio} 
+    >
+      Mi-Tiendita<span className="dot">•</span>
+    </div>
         
       {/* busqueda */}
        <input
       type="text"
       className="search"
       placeholder="Busqueda por nombre de producto, serie o marca"
-      value={busqueda}
-      onChange={e => setBusqueda(e.target.value)}
-      onKeyDown={manejarBusqueda}
+      onClick={irAResultados}
     />
 
 
@@ -50,7 +54,11 @@ const HeaderPre = () => {
 };
 
 const Header = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const irDashboard = () => {
+    navigate('/dashboard');
+  }
+  
   return (
     <div className="landing-container">
       <HeaderPre />
@@ -58,7 +66,7 @@ const Header = () => {
         <ul>
           <li onClick={() => navigate('/Categorias')}>Categorías</li>
           <li>Productos</li>
-          <li>Nosotros</li>
+          <li onClick={irDashboard}>Dashboard</li>
           <li className="ofertas">⭐ OFERTAS</li>
         </ul>
       </nav>

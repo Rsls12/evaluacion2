@@ -1,9 +1,9 @@
 import DetalleUsuario from '../components/Categorias/DetalleUsuarios/DetalleUsuario.jsx';
 
-const Det = () => {
+const DetalleU = () => {
     return (
         <DetalleUsuario />
     )
 }
 
-export default Det;
+export default DetalleU;

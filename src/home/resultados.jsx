@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import "./resultados.css";  
-import productosData from './data/Productos'
-import { filtrarProductos } from "./home/js/busqueda"; 
+import productosData from '../data/Productos'
+import { filtrarProductos } from "./js/busqueda"; 
 import { useNavigate } from 'react-router-dom';
-import { useCart } from './context/CartContext';
+import { useCart } from '../context/CartContext';
+import Footer from "../components/Footer/Footer.jsx"; 
 
 function Resultados() {
   const [filtro, setFiltro] = useState('');
@@ -15,9 +16,18 @@ function Resultados() {
   navigate('/cart');  
   };
   const { agregarAlCarrito } = useCart();
+
+
+
+  
   return (
     <div className="landing-container">
-      {/* Filtro lateral y resultados */}
+      
+
+
+
+
+      {/* Filtro y resultados */}
       <div className="contenedor-resultados">
         <aside className="filtro-categorias">
           <h4>Categorías</h4>
@@ -47,7 +57,14 @@ function Resultados() {
             {productosFiltrados.length > 0 ? (
               productosFiltrados.map(p => (
                 <div className="producto-card" key={p.id}>
-               <img src={p.imagen} alt={p.nombre} className="producto-img" />
+                <img
+                  src={p.imagen}
+                  alt={p.nombre}
+                  className="producto-img"
+                  onClick={() => navigate(`/producto/${p.id}`)}
+                  
+                />
+
                   <h5>{p.nombre}</h5>
                   <p>{p.categoria}</p>
                   <p>S/{p.precio.toFixed(2)}</p>
@@ -62,37 +79,8 @@ function Resultados() {
         </main>
       </div>
 
-
-          {/* Footer */}
-      <footer className="footer">
-        <div className="footer-section">
-          <h4>Síguenos</h4>
-          <div className="social-icons">
-            <img src="/img/facebook.svg" alt="Facebook" />
-            <img src="/img/x.svg" alt="X" />
-            <img src="/img/instagram.svg" alt="Instagram" />
-            <img src="/img/youtube.svg" alt="YouTube" />
-          </div>
-        </div>
-        <div className="footer-section">
-          <h4>Nosotros</h4>
-          <p>Condiciones</p>
-          <p>Responsabilidad social</p>
-          <p>Nuestras tiendas</p>
-        </div>
-        <div className="footer-section">
-          <h4>Atención al cliente</h4>
-          <p>Atención al cliente</p>
-          <p>Horario de atención</p>
-          <p>Preguntas frecuentes</p>
-        </div>
-        <div className="footer-section">
-          <h4>Políticas y condiciones</h4>
-          <p>Políticas de datos personales</p>
-          <p>Condición de promociones</p>
-          <p>Términos y condiciones</p>
-        </div>
-      </footer>
+ <Footer />
+    
     </div>
 
 

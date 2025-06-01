@@ -63,6 +63,7 @@
   object-fit: contain;
   margin: auto;
   display: block;
+  cursor: pointer;
 }
 
 .lista-productos {
@@ -101,7 +102,6 @@
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 .producto-card .agregar-btn:hover {

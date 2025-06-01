@@ -1,7 +1,6 @@
 import { useState,useEffect } from 'react';
-import Lr from "../Listilla/Lr.jsx"; // corregido
+import Lr from "../ListaOrdenes/Lr.jsx";
 import "./Listilla.css";
-import './Listilla.css'
 const Listilla = () => {
     const valores = [
   {
