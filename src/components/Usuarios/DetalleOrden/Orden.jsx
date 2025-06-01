@@ -78,7 +78,7 @@ const Orden = () => {
   return (
     <>
     <h1>Detalles de Orden</h1>
-    <div className='ddd'>
+    <div className='encabezado'>
     <Cabeza/>
     <table>
       <thead>

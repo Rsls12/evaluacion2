@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Footer from "../components/Footer/Footer.jsx"; 
 import './app.css';
-import { activarSlider } from './js/slider';
 
 function App() {
-  useEffect(() => {
-    activarSlider();
-  }, []);
+  const navigate = useNavigate();
+
+  const irAResultados = () => {
+    navigate('/resultados');
+  };
 
   return (
     <div className="landing-container">
+
 
       {/* Banner */}
       <section className="banner">
@@ -39,123 +42,72 @@ function App() {
         </div>
       </section>
 
+      {/* Más vendidos */}
+      <section className="mas-vendidos">
+        <h2>Lo más vendido</h2>
 
-
-
-     <div className="caja-slider">
-  <button id="izquierda" className="boton-slider">◀</button>
-
-  <section className="mas-vendidos">
-    <h2>Lo más vendido</h2>
-
- 
-    <div id="caja-productos" className="scroll-horizontal">
-      <div className="producto">
-        <img src="/img/polloo.png" alt="Pollo entero fresco" />
-        <h4>Pollo Entero</h4>
-        <p className="categoria">Carnes, aves y pescado</p>
-        <p className="precio">S/9.40 X KG</p>
-        <button className="agregar-btn">AGREGAR</button>
-      </div>
-
-      <div className="producto">
-        <img src="/img/zanahoria.png" alt="Zanahoria" />
-        <h4>Zanahoria</h4>
-        <p className="categoria">Frutas y verduras</p>
-        <p className="precio">S/2.50</p>
-        <button className="agregar-btn">AGREGAR</button>
-      </div>
-
-      <div className="producto">
-        <img src="/img/azucar.png" alt="Zanahoria" />
-        <h4>Azucar</h4>
-        <p className="categoria">Frutas y verduras</p>
-        <p className="precio">S/2.50</p>
-        <button className="agregar-btn">AGREGAR</button>
-      </div>
-
-      <div className="producto">
-        <img src="/img/avena.png" alt="Zanahoria" />
-        <h4>Avena</h4>
-        <p className="categoria">Frutas y verduras</p>
-        <p className="precio">S/2.50</p>
-        <button className="agregar-btn">AGREGAR</button>
-      </div>
-
-      <div className="producto">
-        <img src="/img/cafe.png" alt="Zanahoria" />
-        <h4>Cafe</h4>
-        <p className="categoria">Frutas y verduras</p>
-        <p className="precio">S/2.50</p>
-        <button className="agregar-btn">AGREGAR</button>
-      </div>
-
-      <div className="producto">
-        <img src="/img/polloo.png" alt="Pollo congelado" />
-        <h4>Pollo</h4>
-        <p className="categoria">Carnes, aves y pescado</p>
-        <p className="precio">S/8.50</p>
-        <button className="agregar-btn">AGREGAR</button>
-      </div>
-
-      <div className="producto">
-        <img src="/img/clorox.png" alt="Cloro Clorox" />
-        <h4>Clorox</h4>
-        <p className="categoria">Limpieza</p>
-        <p className="precio">S/2.30</p>
-        <button className="agregar-btn">AGREGAR</button>
-      </div>
-
-      <div className="producto">
-        <img src="/img/avena.png" alt="Avena instantánea" />
-        <h4>Avena</h4>
-        <p className="categoria">Abarrotes</p>
-        <p className="precio">S/2.90</p>
-        <button className="agregar-btn">AGREGAR</button>
-      </div>
-
-     
-
-    </div>
-  </section>
-
-  <button id="derecha" className="boton-slider">▶</button>
-</div>
-
-<br>
-</br>
-
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-section">
-          <h4>Síguenos</h4>
-          <div className="social-icons">
-            <img src="/img/facebook.svg" alt="Facebook" />
-            <img src="/img/x.svg" alt="X" />
-            <img src="/img/instagram.svg" alt="Instagram" />
-            <img src="/img/youtube.svg" alt="YouTube" />
+        <div className="scroll-horizontal">
+          <div className="producto">
+            <img src="/img/polloo.png" alt="Pollo entero fresco" />
+            <h4>Pollo Entero</h4>
+            <p className="categoria">Carnes, aves y pescado</p>
+            <p className="precio">S/9.40 X KG</p>
+            <button className="agregar-btn">AGREGAR</button>
+          </div>
+          <div className="producto">
+            <img src="/img/zanahoria.png" alt="Zanahoria" />
+            <h4>Zanahoria</h4>
+            <p className="categoria">Frutas y verduras</p>
+            <p className="precio">S/2.50</p>
+            <button className="agregar-btn">AGREGAR</button>
+          </div>
+          <div className="producto">
+            <img src="/img/azucar.png" alt="Azucar" />
+            <h4>Azucar</h4>
+            <p className="categoria">Frutas y verduras</p>
+            <p className="precio">S/2.50</p>
+            <button className="agregar-btn">AGREGAR</button>
+          </div>
+          <div className="producto">
+            <img src="/img/avena.png" alt="Avena" />
+            <h4>Avena</h4>
+            <p className="categoria">Frutas y verduras</p>
+            <p className="precio">S/2.50</p>
+            <button className="agregar-btn">AGREGAR</button>
+          </div>
+          <div className="producto">
+            <img src="/img/cafe.png" alt="Cafe" />
+            <h4>Cafe</h4>
+            <p className="categoria">Frutas y verduras</p>
+            <p className="precio">S/2.50</p>
+            <button className="agregar-btn">AGREGAR</button>
+          </div>
+          <div className="producto">
+            <img src="/img/polloo.png" alt="Pollo congelado" />
+            <h4>Pollo</h4>
+            <p className="categoria">Carnes, aves y pescado</p>
+            <p className="precio">S/8.50</p>
+            <button className="agregar-btn">AGREGAR</button>
+          </div>
+          <div className="producto">
+            <img src="/img/clorox.png" alt="Cloro Clorox" />
+            <h4>Clorox</h4>
+            <p className="categoria">Limpieza</p>
+            <p className="precio">S/2.30</p>
+            <button className="agregar-btn">AGREGAR</button>
+          </div>
+          <div className="producto">
+            <img src="/img/avena.png" alt="Avena instantánea" />
+            <h4>Avena</h4>
+            <p className="categoria">Abarrotes</p>
+            <p className="precio">S/2.90</p>
+            <button className="agregar-btn">AGREGAR</button>
           </div>
         </div>
-        <div className="footer-section">
-          <h4>Nosotros</h4>
-          <p>Condiciones</p>
-          <p>Responsabilidad social</p>
-          <p>Nuestras tiendas</p>
-        </div>
-        <div className="footer-section">
-          <h4>Atención al cliente</h4>
-          <p>Atención al cliente</p>
-          <p>Horario de atención</p>
-          <p>Preguntas frecuentes</p>
-        </div>
-        <div className="footer-section">
-          <h4>Políticas y condiciones</h4>
-          <p>Políticas de datos personales</p>
-          <p>Condición de promociones</p>
-          <p>Términos y condiciones</p>
-        </div>
-      </footer>
+      </section>
+
+       <Footer />
+      
     </div>
   );
 }

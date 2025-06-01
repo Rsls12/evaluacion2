@@ -8,13 +8,14 @@ import Cart from './routes/Cart.jsx'
 import Checkout from './routes/Checkout.jsx'
 import Fin from './routes/Fin.jsx'
 import Catalogo from './routes/Catalogo.jsx'
-import Resultados from './resultados.jsx'
+import Resultados from "./home/resultados.jsx";
+
 import Dashboardpage from './routes/Dashboard.jsx';
 import Cate from './routes/ListaCate.jsx';
-import Comp from './components/Usuarios/ListaU/Comp.jsx';
-import Fijo from './components/Usuarios/Dett/Fijo.jsx';
-import Orden from './components/Usuarios/Orden/Orden.jsx';
-import Listilla from './components/Usuarios/Listilla/Listilla.jsx';
+import Comp from './components/Usuarios/ListaUsuarios/Comp.jsx';
+import Fijo from './components/Usuarios/DetallesProducto/Fijo.jsx';
+import Orden from './components/Usuarios/DetalleOrden/Orden.jsx';
+import Listilla from './components/Usuarios/ListaOrdenes/Listilla.jsx';
 import RootWrapper from './components/RootWrapper.jsx';
 import Login from './components/alumno3/Login.jsx';
 import Register from './components/alumno3/register.jsx';
@@ -23,6 +24,7 @@ import DashboardAlumno3 from './components/alumno3/Dashboard.jsx';
 import ProductsListF from './routes/listProducts.jsx';
 import AgregarProducto from './routes/AgregarProducto.jsx';
 import DetalleProducto from "./routes/DetalleProducto.jsx"
+import ProductoDetalle from './home/ProductoDetalle.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,12 +37,13 @@ const router = createBrowserRouter([
       { path: '/end', element: <Fin /> },
       { path: '/catalogo', element: <Catalogo /> },
       { path: '/resultados', element: <Resultados /> },
+      { path: '/producto/:id', element: <ProductoDetalle /> },
       { path: '/dashboard', element: <Dashboardpage /> },
       { path: '/Categorias', element: <Cate /> },
-      { path: '/usuarios', element: <Comp /> },
-      { path: '/fijo', element: <Fijo /> },
-      { path: '/orden', element: <Orden /> },
-      { path: '/lista', element: <Listilla /> },
+      { path: '/listaUsuarios', element: <Comp /> },
+      { path: '/detalleUsuario', element: <Fijo /> },
+      { path: '/detalleOrden', element: <Orden /> },
+      { path: '/ListaOrdenes', element: <Listilla /> },
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
       { path: '/recover', element: <Recover /> },
