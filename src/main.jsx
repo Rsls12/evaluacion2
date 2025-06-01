@@ -20,6 +20,7 @@ import Login from './components/alumno3/Login.jsx';
 import Register from './components/alumno3/register.jsx';
 import Recover from './components/alumno3/Recover.jsx';
 import DashboardAlumno3 from './components/alumno3/Dashboard.jsx';
+import Det from './routes/DetalleU.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,7 +42,9 @@ const router = createBrowserRouter([
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
       { path: '/recover', element: <Recover /> },
-      { path: '/dashboardalumno3', element: <DashboardAlumno3 /> }
+      { path: '/dashboardalumno3', element: <DashboardAlumno3 /> },
+      { path: '/detalleUsuario', element: <Det /> }
+
     ]
   }
 ]);

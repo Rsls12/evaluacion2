@@ -753,10 +753,26 @@ function Categorias() {
               <span>Agregar categoría</span>
             </button>
           </div>
+          
           <TablaCategorias
-            categories={currentCategories}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
+            headers={["Nombre", "Descripción", "Acciones"]}
+            data={currentCategories}
+            renderRow={(category, index) => (
+              <>
+                <td className="category-name">{category.name}</td>
+                <td className="category-description">{category.description}</td>
+                <td className="category-actions">
+                  <div className="action-buttons">
+                    <button onClick={() => handleEdit(category.id)} className="edit-button">
+                      ✏️
+                    </button>
+                    <button onClick={() => handleDelete(category.id)} className="delete-button">
+                      🗑️
+                    </button>
+                  </div>
+                </td>
+              </>
+            )}
           />
           {/* Pagination */}
           {totalPages > 1 && (
@@ -772,7 +788,6 @@ function Categorias() {
               </div>
             </>
           )}
-
         </div>
       </main>
     </div>
