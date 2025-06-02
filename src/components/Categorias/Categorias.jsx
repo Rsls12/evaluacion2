@@ -1,11 +1,8 @@
 import { useState } from "react"
-import  Header  from "../../components/Header/header.jsx";
 import "./ListaCategorias.css"
 import TablaCategorias from "./CateTabla/TablaCategorias.jsx";
 import Pagination from "./Paginacion/Pag.jsx"
 import filterItems from "../AdminPages/ListaProductos/filterProductos.jsx"
-
-
 
 // Iconos como componentes SVG
 const SearchIcon = () => (
@@ -31,20 +28,8 @@ const DeleteIcon = () => (
   </svg>
 )
 
-const ChevronLeftIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <polyline points="15 18 9 12 15 6"></polyline>
-  </svg>
-)
-
-const ChevronRightIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <polyline points="9 18 15 12 9 6"></polyline>
-  </svg>
-)
-
 function Categorias() {
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("") 
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 7
 
@@ -606,7 +591,7 @@ function Categorias() {
     alert("Abrir formulario para agregar nueva categoría")
   }
 
-  const goToPage = (page) => {
+  const goToPage = (page) => { //Cambia 
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page)
       console.log(`Navegando a la página ${page}`)
@@ -616,111 +601,6 @@ function Categorias() {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value)
     setCurrentPage(1) // Resetear a la primera página cuando se busca
-  }
-
-  // Generar números de página para mostrar
-  const renderPaginationNumbers = () => {
-    const pages = []
-    const maxVisiblePages = 5
-
-    if (totalPages <= maxVisiblePages) {
-      // Mostrar todas las páginas si son pocas
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(
-          <button
-            key={i}
-            onClick={() => goToPage(i)}
-            className={`pagination-number ${currentPage === i ? "pagination-number-active" : ""}`}
-          >
-            {i}
-          </button>,
-        )
-      }
-    } else {
-      // Lógica más compleja para muchas páginas
-      if (currentPage <= 3) {
-        // Mostrar primeras páginas
-        for (let i = 1; i <= 4; i++) {
-          pages.push(
-            <button
-              key={i}
-              onClick={() => goToPage(i)}
-              className={`pagination-number ${currentPage === i ? "pagination-number-active" : ""}`}
-            >
-              {i}
-            </button>,
-          )
-        }
-        pages.push(
-          <span key="ellipsis1" className="pagination-ellipsis">
-            ...
-          </span>,
-        )
-        pages.push(
-          <button key={totalPages} onClick={() => goToPage(totalPages)} className="pagination-number">
-            {totalPages}
-          </button>,
-        )
-      } else if (currentPage >= totalPages - 2) {
-        // Mostrar últimas páginas
-        pages.push(
-          <button key={1} onClick={() => goToPage(1)} className="pagination-number">
-            1
-          </button>,
-        )
-        pages.push(
-          <span key="ellipsis2" className="pagination-ellipsis">
-            ...
-          </span>,
-        )
-        for (let i = totalPages - 3; i <= totalPages; i++) {
-          pages.push(
-            <button
-              key={i}
-              onClick={() => goToPage(i)}
-              className={`pagination-number ${currentPage === i ? "pagination-number-active" : ""}`}
-            >
-              {i}
-            </button>,
-          )
-        }
-      } else {
-        // Mostrar páginas del medio
-        pages.push(
-          <button key={1} onClick={() => goToPage(1)} className="pagination-number">
-            1
-          </button>,
-        )
-        pages.push(
-          <span key="ellipsis3" className="pagination-ellipsis">
-            ...
-          </span>,
-        )
-        for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-          pages.push(
-            <button
-              key={i}
-              onClick={() => goToPage(i)}
-              className={`pagination-number ${currentPage === i ? "pagination-number-active" : ""}`}
-            >
-              {i}
-            </button>,
-          )
-        }
-        pages.push(
-          <span key="ellipsis4" className="pagination-ellipsis">
-            ...
-          </span>,
-        )
-        pages.push(
-          <button key={totalPages} onClick={() => goToPage(totalPages)} className="pagination-number">
-            {totalPages}
-          </button>,
-        )
-      }
-    }
-
-    return pages
   }
 
   return (
@@ -739,7 +619,7 @@ function Categorias() {
             <div className="category-search-container">
               <input
                 type="text"
-                placeholder="Buscar un producto..."
+                placeholder="Buscar un categoria..."
                 value={searchTerm}
                 onChange={handleSearchChange}
                 className="category-search-input"
@@ -782,10 +662,6 @@ function Categorias() {
                 totalPages={totalPages}
                 onPageChange={goToPage}
               />
-              <div className="pagination-info">
-                Página {currentPage} de {totalPages} | Mostrando {startIndex + 1}-
-                {Math.min(endIndex, filteredCategories.length)} de {filteredCategories.length} categorías
-              </div>
             </>
           )}
         </div>

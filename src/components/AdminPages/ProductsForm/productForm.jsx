@@ -115,7 +115,7 @@ function ProductForm({
   }
 
   const handleAddCategory = () => {
-    setMostrarModalCategoria(true) // 🔥 Muestra la modal emergente
+    setMostrarModalCategoria(true) //  Muestra la modal emergente
   }
 
   const title = mode === "add" ? "Agregar un producto" : "Editar"
