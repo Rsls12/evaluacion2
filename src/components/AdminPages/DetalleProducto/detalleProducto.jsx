@@ -1,4 +1,5 @@
 import ProductForm from "../ProductsForm/productForm.jsx"
+import { useNavigate } from 'react-router-dom';
 
 function EditProduct() {
   // Datos del producto a editar (normalmente vendrían de una API o props)
@@ -19,9 +20,11 @@ function EditProduct() {
     alert("Producto editado con éxito!")
   }
 
+  const navigate = useNavigate();
+
   const handleCancel = () => {
     console.log("Cancelar edición")
-    // Aquí iría la lógica para cancelar (ej: navegar hacia atrás)
+    navigate("/listaProductos")
   }
 
   return <ProductForm mode="edit" initialData={productData} onSubmit={handleSubmit} onCancel={handleCancel} />
