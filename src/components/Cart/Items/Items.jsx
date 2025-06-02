@@ -23,7 +23,7 @@ const Item = ({ id, nombre, descripcion, cantidad, precio, imagen }) => {
     </div>
 
     <div className="item-controles">
-      <p className="item-precio">S/ {precio.toFixed(2)}</p>
+      <p className="item-precio">S/ {subtotal.toFixed(2)}</p>
 
       <div className="item-botones">
         <div className="item-cantidad">
